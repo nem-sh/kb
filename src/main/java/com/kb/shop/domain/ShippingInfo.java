@@ -1,9 +1,7 @@
 package com.kb.shop.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.kb.shop.domain.enums.ShippingStatus;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -14,8 +12,11 @@ public class ShippingInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Order id
-    // OrderItem id
-    // shippingStatus
+    private Long orderId;
+
+    private Long orderItemId;
+
+    @Enumerated(EnumType.STRING)
+    private ShippingStatus shippingStatus;
 
 }
